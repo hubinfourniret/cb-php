@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <form method="post" action="/depot">
+        <label class="input input-bordered flex items-center gap-2">
+            Montant
+            <input type="text" name="montant" class="grow" placeholder="Montant" />
+        </label>
+        <div class="divider"></div>
+        <button class="btn btn-neutral">Déposer</button>
+    </form>
+{% endblock %}

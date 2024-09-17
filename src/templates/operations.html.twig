@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h2>Opérations :</h2>
+    <div class="divider"></div>
+        <ul>
+            {% for op in cb.operations %}
+                <li>{{ op.intitule }} -> {{ op.montant }}€</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
