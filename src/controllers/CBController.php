@@ -2,7 +2,7 @@
 
 namespace App\controllers;
 use Pecee\SimpleRouter\SimpleRouter;
-use App\models\CompteBancaire;
+use App\oldModels\CompteBancaire;
 
 class CBController extends BaseController
 {

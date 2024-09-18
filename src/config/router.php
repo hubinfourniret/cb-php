@@ -1,6 +1,6 @@
 <?php
 use Pecee\SimpleRouter\SimpleRouter;
-use App\models\CompteBancaire;
+use App\oldModels\CompteBancaire;
 
 SimpleRouter::group(['namespace'=> 'App\controllers'], function (){
     SimpleRouter::get('/','CBController@index');

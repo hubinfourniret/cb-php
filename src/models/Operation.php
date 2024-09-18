@@ -1,41 +1,55 @@
 <?php
 
-namespace App\models;
+/**
+ * Created by Reliese Model.
+ */
 
-class Operation
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * Class Operation
+ * 
+ * @property int $id
+ * @property float|null $montant
+ * @property string|null $libelle
+ * @property bool|null $typeOperation
+ * @property int $idFamille
+ * @property int $idCompte
+ * 
+ * @property Famille $famille
+ * @property Compte $compte
+ *
+ * @package App\Models
+ */
+class Operation extends Model
 {
-    private string $intitule;
-    private float $montant;
-    private TypeOperation $typeOperation;
-    private \DateTime $date;
+	protected $table = 'operation';
+	public $timestamps = false;
 
-    public function __construct(string $intitule, float $montant, TypeOperation $typeOperation){
-        $this->intitule=$intitule;
-        $this->montant=$montant;
-        $this->typeOperation=$typeOperation;
-        $this->date=new \DateTime();
-    }
+	protected $casts = [
+		'montant' => 'float',
+		'typeOperation' => 'bool',
+		'idFamille' => 'int',
+		'idCompte' => 'int'
+	];
 
-    /**
-     * @return float
-     */
-    public function getMontant(): float
-    {
-        return $this->montant;
-    }
+	protected $fillable = [
+		'montant',
+		'libelle',
+		'typeOperation',
+		'idFamille',
+		'idCompte'
+	];
 
-    /**
-     * @return string
-     */
-    public function getIntitule(): string
-    {
-        return $this->intitule;
-    }
+	public function famille()
+	{
+		return $this->belongsTo(Famille::class, 'idFamille');
+	}
 
-    public static function credit(string $intitule, float $montant):Operation {
-        return new Operation($intitule, $montant, TypeOperation::Credit);
-    }
-    public static function debit(string $intitule, float $montant):Operation {
-        return new Operation($intitule, $montant, TypeOperation::Debit);
-    }
+	public function compte()
+	{
+		return $this->belongsTo(Compte::class, 'idCompte');
+	}
 }
