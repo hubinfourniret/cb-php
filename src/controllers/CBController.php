@@ -1,6 +1,7 @@
 <?php
 
 namespace App\controllers;
+use App\Models\Utilisateur;
 use Pecee\SimpleRouter\SimpleRouter;
 use App\oldModels\CompteBancaire;
 
@@ -70,5 +71,12 @@ class CBController extends BaseController
     public function operations(){
         $cb=$_SESSION['cb']??null;
         return $this->render('operations.html.twig',['cb'=>$cb]);
+    }
+
+    public function users(){
+        //$users=Utilisateur::all();
+        $users=Utilisateur::find(1);
+
+        return $this->render('users.html.twig',['users'=>$users]);
     }
 }

@@ -12,4 +12,5 @@ SimpleRouter::group(['namespace'=> 'App\controllers'], function (){
     SimpleRouter::get('/retrait','CBController@retraitForm');
     SimpleRouter::post('/retrait','CBController@retrait');
     SimpleRouter::get('/operations','CBController@operations');
+    SimpleRouter::get('/users','CBController@users');
 });
