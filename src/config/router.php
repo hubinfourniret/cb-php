@@ -17,5 +17,5 @@ SimpleRouter::group(['namespace'=> 'App\controllers'], function (){
     SimpleRouter::get('/admin/add','AdminController@addForm');
     SimpleRouter::post('/admin/add','AdminController@add');
     SimpleRouter::get('/admin/update','AdminController@update');
-    SimpleRouter::get('/admin/delete/{{u.id}}','AdminController@delete');
+    SimpleRouter::get('/admin/delete/{id}','AdminController@delete');
 });
