@@ -13,4 +13,9 @@ SimpleRouter::group(['namespace'=> 'App\controllers'], function (){
     SimpleRouter::post('/retrait','CBController@retrait');
     SimpleRouter::get('/operations','CBController@operations');
     SimpleRouter::get('/users','CBController@users');
+    SimpleRouter::get('/admin','AdminController@index');
+    SimpleRouter::get('/admin/add','AdminController@addForm');
+    SimpleRouter::post('/admin/add','AdminController@add');
+    SimpleRouter::get('/admin/update','AdminController@update');
+    SimpleRouter::get('/admin/delete/{{u.id}}','AdminController@delete');
 });

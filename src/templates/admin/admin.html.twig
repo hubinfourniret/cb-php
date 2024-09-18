@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h2>Utilisateur</h2>
+    <ul>
+        {% for u in users %}
+            <li>
+                {{ u.login }}
+                <a href="/admin/delete/{{ u.id }}" class="btn btn-neutral">Ajouter l'utilisateur</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

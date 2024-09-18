@@ -15,6 +15,11 @@
                     <div class="navbar bg-base-100 w-full">
                         <a href='/' class="btn btn-ghost text-xl">CB App</a>
                         {% block menu %}
+                            {% for menuItem in menu %}
+                                <a href="{{ menuItem.route }}" class="btn btn-ghost text-xl">
+                                    {{ menuItem.caption }}
+                                </a>
+                            {% endfor %}
                         {% endblock %}
                     </div>
                 </div>

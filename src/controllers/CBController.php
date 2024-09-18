@@ -16,7 +16,8 @@ class CBController extends BaseController
                 ['caption'=>'Fermer le compte','route'=>'/fermer']
             ];
         }
-        return [['caption' => 'Créer un compte', 'route' => '/newCompte']];
+        return [['caption' => 'Créer un compte', 'route' => '/newCompte'],
+        ['caption' => 'Admin', 'route' => '/admin']];
     }
     public function index(){
         $cb=$_SESSION['cb']??null;
@@ -71,12 +72,5 @@ class CBController extends BaseController
     public function operations(){
         $cb=$_SESSION['cb']??null;
         return $this->render('operations.html.twig',['cb'=>$cb]);
-    }
-
-    public function users(){
-        //$users=Utilisateur::all();
-        $users=Utilisateur::find(1);
-
-        return $this->render('users.html.twig',['users'=>$users]);
     }
 }

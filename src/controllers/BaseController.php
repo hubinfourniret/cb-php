@@ -14,6 +14,7 @@ class BaseController
     }
 
     public function render(string $view, array $params = []){
+        $params['baseUrl']='/';
         return $this->twig->render($view, $params);
     }
 }
