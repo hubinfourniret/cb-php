@@ -36,6 +36,7 @@ class AdminController extends BaseController
     }
 
     public function delete($id){
-        $id::forceDestroy(1);
+        utilisateur::forceDestroy($id);
+        return $this->index();
     }
 }

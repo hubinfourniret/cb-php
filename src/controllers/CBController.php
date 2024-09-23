@@ -13,10 +13,11 @@ class CBController extends BaseController
                 ['caption'=>'Dépôt','route'=>'/depot'],
                 ['caption'=>'Retrait','route'=>'/retrait'],
                 ['caption'=>'Toutes les opérations','route'=>'/operations'],
+                ['caption'=>'Créer un compte','route'=>'/newCompte'],
                 ['caption'=>'Fermer le compte','route'=>'/fermer']
             ];
         }
-        return [['caption' => 'Créer un compte', 'route' => '/newCompte'],
+        return [['caption' => 'Créer un utilisateur', 'route' => '/newUser'],
         ['caption' => 'Admin', 'route' => '/admin']];
     }
     public function index(){
@@ -24,15 +25,14 @@ class CBController extends BaseController
         return $this->render('cbView.html.twig',['cb'=>$cb, 'menu'=>$this->getMenu()]);
     }
 
-    public function newCompte(){
-        $titulaire=$_POST['titulaire'];
-        $cb=new CompteBancaire($titulaire);
+    public function newUser(){
+        $user=ne$_POST['titulaire'];
         $_SESSION['cb']=$cb;
         return $this->render('cbView.html.twig',['cb'=>$cb]);
     }
 
-    public function newCompteForm(){
-        return $this->render('newCompte.html.twig');
+    public function newUserForm(){
+        return $this->render('newUser.html.twig');
     }
 
     public function fermer(){
