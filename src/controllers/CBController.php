@@ -3,12 +3,12 @@
 namespace App\controllers;
 use App\Models\Utilisateur;
 use Pecee\SimpleRouter\SimpleRouter;
-use App\oldModels\CompteBancaire;
+
 
 class CBController extends BaseController
 {
     function getMenu() {
-        if(isset($_SESSION['cb'])){
+        if(isset($_SESSION['user'])){
             return [
                 ['caption'=>'Dépôt','route'=>'/depot'],
                 ['caption'=>'Retrait','route'=>'/retrait'],
@@ -26,9 +26,13 @@ class CBController extends BaseController
     }
 
     public function newUser(){
-        $user=ne$_POST['titulaire'];
-        $_SESSION['cb']=$cb;
-        return $this->render('cbView.html.twig',['cb'=>$cb]);
+        $user = new Utilisateur();
+        $user->login= $_POST['titulaire'];
+        $user->password= md5($_POST['password']);
+        $_SESSION['user']=$user;
+        if ($user->save()) {
+            return $this->render('cbView.html.twig',['user'=>$user]);
+        }
     }
 
     public function newUserForm(){

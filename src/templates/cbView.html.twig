@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block body %}
-    {% if cb %}
-        <h1>Utilisateur : {{cb}}</h1>
+    {% if user %}
+        <h1>Utilisateur : {{user.login}}</h1>
         <div class="divider"></div>
         {% if cb.operations %}
             <h2>Opérations :</h2>
