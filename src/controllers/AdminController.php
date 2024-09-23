@@ -15,7 +15,7 @@ class AdminController extends BaseController
     }
     public function index(){
         $users=Utilisateur::all();
-        return $this->render('admin/admin.html.twig',['users'=>$users,'id'=>$id]);
+        return $this->render('admin/admin.html.twig',['users'=>$users]);
     }
 
     public function addUserForm(){
@@ -36,6 +36,6 @@ class AdminController extends BaseController
     }
 
     public function delete($id){
-        $id->softDeletes();
+        $id::forceDestroy(1);
     }
 }
