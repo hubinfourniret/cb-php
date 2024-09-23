@@ -18,3 +18,7 @@ SimpleRouter::group(['namespace'=> 'App\controllers'], function (){
     SimpleRouter::post('/admin/add','AdminController@add');
     SimpleRouter::get('/admin/delete/{id}','AdminController@delete');
 });
+
+SimpleRouter::group(['namespace'=> 'App\controllers'],function (){
+    SimpleRouter::get('/login','IndexControllers@login');
+});
